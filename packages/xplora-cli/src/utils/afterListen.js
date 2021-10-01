@@ -8,7 +8,7 @@ async function afterListen(app, port) {
   log(`Spinning up a server on ${port}`);
   // Expose the front end if the app is not in development mode
   if (process.env.NODE_ENV !== "development") {
-    app.use("/", express.static(path.join(__dirname, "..", "frontend")));
+    app.use("/", express.static(path.join(__dirname, "..", "..", "frontend")));
 
     // Opens URL in user's preffered browser
     try {
