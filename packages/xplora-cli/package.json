@@ -1,8 +1,9 @@
 {
   "name": "xplora-cli",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "A CLI tool to visualize directories on your file system right in your browser, it also watches for changes in specified directories.",
   "repository": "marvinjude/xplora",
+  "license": "MIT",
   "main": "./bin/xplora.js",
   "engines": {
     "node": ">=12.x"
@@ -29,7 +30,6 @@
     "file explorer"
   ],
   "author": "",
-  "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.2",
     "cors": "^2.8.5",

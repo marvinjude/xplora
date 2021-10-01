@@ -10,27 +10,30 @@ process.on("unhandledRejection", (err) => {
 const { server, app } = require("../src/server");
 const { fetchFilesController } = require("../src/controllers/fetchFiles.js");
 const { handleFileChanges } = require("../src/utils/handleFileChanges.js");
-const { getPathsValidity } = require("../src/utils/getPathsValidity.js");
+const {
+  getPathsValidity,
+  handlePathsValidity,
+} = require("../src/utils/getPathsValidity.js");
 const notifyForUpdates = require("../src/utils/notifyForUpdates");
-const log = require("../src/utils/log");
 const afterListen = require("../src/utils/afterListen");
-const { noValidPaths } = require("../src/utils/errorMessages");
-
-const { validPaths, invalidPaths } = getPathsValidity(process.argv.slice(2));
-
-if (validPaths.length === 0) {
-  log(noValidPaths(invalidPaths));
-  process.exit(0);
-}
+const log = require("../src/utils/log");
 
 const PORT = process.env.PORT || 3001;
 
-//Emit event when file change is dectected in {validPaths}
-handleFileChanges(validPaths);
+(async () => {
+  const { validPaths, invalidPaths, noPermissionPaths } =
+    await getPathsValidity(process.argv.slice(2));
 
-//Endpoint to fetch files
-app.get("/api", (req, res) => fetchFilesController(req, res, validPaths));
+  // shows Validity of paths
+  handlePathsValidity({ validPaths, invalidPaths, noPermissionPaths });
 
-server.listen(PORT, () => afterListen(app, PORT));
+  //Emit event when file change is dectected in {validPaths}
+  handleFileChanges(validPaths);
 
-notifyForUpdates.notify();
+  //Endpoint to fetch files
+  app.get("/api", (req, res) => fetchFilesController(req, res, validPaths));
+
+  server.listen(PORT, () => afterListen(app, PORT));
+
+  notifyForUpdates.notify();
+})();

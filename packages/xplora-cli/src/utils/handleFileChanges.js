@@ -1,5 +1,7 @@
 const { watch } = require("fs");
 const { getDirectoryTreeFromPaths } = require("./files.js");
+const chalk = require('chalk');
+const log = require("./log.js");
 
 //events 
 const CHANGED = "CHANGED";
@@ -14,7 +16,7 @@ function handleFileChanges(paths) {
       if (filename) {
         // only recalculate tree for directory where change occured
         const payload = await getDirectoryTreeFromPaths([path]);
-        console.log(`Change Detected in ${path}, Emitting ${CHANGED} event`);
+        log(chalk.yellow(`   👉 Change Detected in ${path}, Emitting ${CHANGED} event`));
 
         // emit event
         io.sockets.emit(CHANGED, {

@@ -110,4 +110,4 @@ This spins up:
 - [ ] Front end Theming
 - [ ] Make frontend more accessible
 - [ ] Add Typescript to CLI code
-- [ ] Add Better error handling and beautiful CLI output
+- [ ] Make CLI more interactive

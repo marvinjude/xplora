@@ -3,7 +3,12 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
   body {
     background: ${(props) => props.theme.colors["editor.background"]};
+    font-family: 'Manrope', sans-serif;
   }
+
+  /*
+   CSS RESET
+  */
 
   :root {
     --app-height: 100%;

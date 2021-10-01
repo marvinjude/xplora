@@ -1,4 +1,6 @@
 const { getDirectoryTreeFromPaths } = require("../utils/files.js");
+const log = require("../utils/log.js");
+const chalk = require("chalk");
 
 async function fetchFilesController(_, res, paths) {
   try {
