@@ -86,12 +86,10 @@ async function listDirectoryFromPath(path) {
     curr.files = [];
     visited[current.path] = true;
 
-    let contentsInCurrentDir;
+    let contentsInCurrentDir = [];
     try {
       contentsInCurrentDir = await readDir(current.path + "/");
-    } catch (e) {
-      console.error(e);
-    }
+    } catch (e) {}
 
     contentsInCurrentDir = contentsInCurrentDir.map((val) => ({
       name: val.name,
@@ -110,7 +108,6 @@ async function listDirectoryFromPath(path) {
   }
   return fileTree;
 }
-
 
 /**
  * Get tree for each path in paths

@@ -36,13 +36,13 @@ async function getPathsValidity(paths) {
  */
 function handlePathsValidity({ validPaths, invalidPaths, noPermissionPaths }) {
   const validPathMessage = `
-  ${chalk.bold.green("VALID PATHS")}
+  ${chalk.bold.green("VALID PATH(S)")}
 
     ${validPaths.map((path) => `✅ ${path}`).join("\n    ")}
   `;
 
   const invalidPathMessage = `
-  ${chalk.bold.red("INVALID PATHS")}
+  ${chalk.bold.red("INVALID PATH(S)")}
 
     ${invalidPaths
       .map((path) => `❌ ${path} - Path does not exist`)
@@ -52,7 +52,7 @@ function handlePathsValidity({ validPaths, invalidPaths, noPermissionPaths }) {
       .join("\n    ")}
   `;
 
-  const mesaageOnPathsToOpen = chalk.green(`   👉 Opening valid paths`);
+  const mesaageOnPathsToOpen = chalk.green(`   👉 Opening valid path(s)`);
 
   if (invalidPaths.length > 0) {
     log(invalidPathMessage);
