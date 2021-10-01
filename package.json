@@ -1,0 +1,30 @@
+{
+  "name": "xplora",
+  "version": "1.0.0",
+  "description": "Show file tree in browser",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "frontend/**",
+      "xplora-cli/**"
+    ]
+  },
+  "scripts": {
+    "develop": "wsrun -p frontend xplora-cli -c develop",
+    "build:frontend": "wsrun -p frontend -c build",
+    "clean": "rm -rf dist && mkdir dist",
+    "copy-front-end-build-to-distribution": "cp -r packages/frontend/build dist/frontend/",
+    "copy-cli-code-to-dist": "cp -r packages/xplora-cli/** dist",
+    "build": "npm run test && npm run build:frontend && npm run clean && npm run copy-front-end-build-to-distribution && npm run copy-cli-code-to-dist",
+    "test": "wsrun -p frontend xplora-cli -c test"
+  },
+  "author": "marvinjudehk@gmail.com",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "wsrun": "^5.2.4"
+  }
+}
