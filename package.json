@@ -16,9 +16,9 @@
     "develop": "wsrun -p frontend xplora-cli -c develop",
     "build:frontend": "wsrun -p frontend -c build",
     "clean": "rm -rf dist && mkdir dist",
-    "copy-front-end-build-to-distribution": "cp -r packages/frontend/build dist/frontend/",
+    "copy-front-end-build-to-distribution": "rm -rf dist/frontend && cp -r packages/frontend/build dist/frontend/",
     "copy-cli-code-to-dist": "cp -r packages/xplora-cli/** dist",
-    "build": "npm run test && npm run build:frontend && npm run clean && npm run copy-front-end-build-to-distribution && npm run copy-cli-code-to-dist",
+    "build": "npm run test && npm run build:frontend && npm run clean && npm run copy-cli-code-to-dist && npm run copy-front-end-build-to-distribution",
     "test": "wsrun -p frontend xplora-cli -c test"
   },
   "author": "marvinjudehk@gmail.com",
