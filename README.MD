@@ -1,3 +1,5 @@
+> **Note** This project was created over a weekend and serves solely as a learning tool. Nothing more
+
 # Xplora 🍄
 
 A CLI tool to visualize directories on your file system right in your browser, it also watches for changes in specified directories.
