@@ -88,7 +88,7 @@ yarn link
 ```
 
 ```
-$ xplora-cli DIRECTORIES | [LIST OF DIRECTORIES]
+$ xplora-cli DIRECTORY | [LIST OF DIRECTORIES]
 ```
 
 [See Usage](#usage)
