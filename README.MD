@@ -2,7 +2,7 @@
 
 # Xplora 🍄
 
-A CLI tool to visualize directories on your file system right in your browser, it also watches for changes in specified directories.
+A CLI tool to visualize directories and files right in your browser, it also watches for changes in specified directories.
 
 ![Xplora](./.github/screenshot-01.png)
 
