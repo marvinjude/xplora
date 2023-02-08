@@ -103,13 +103,13 @@ yarn develop
 
 This spins up:
 
-1. A Frontend dev server with react scripts. It makes an API to server to fetch files
-2. A nodejs server listening on 3001. It broadcasts a `CHANGE` event with socket.io when changes occur
+- A react react app in development mode
+- A nodejs server listening on port `3001` 
 
 ## TODO
 
 - [ ] Write more test cases
-- [ ] Front end Theming
+- [ ] Front end theming
 - [ ] Make frontend more accessible
-- [ ] Add Typescript to CLI code
-- [ ] Make CLI more interactive
+- [ ] Use Typescript in the CLI package
+- [ ] Make the CLI more interactive
