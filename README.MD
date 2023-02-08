@@ -79,7 +79,7 @@ yarn
 yarn build
 ```
 
-### Testing `xplora-cli` lacally
+### Testing `xplora-cli` locally
 
 ```
 cd dist
